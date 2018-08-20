@@ -54,9 +54,22 @@ public class keycloakController {
 
 	@CrossOrigin(origins="*")
 	@GetMapping("configuration")
-	public String getConfiguration(){
+	@ResponseBody
+	public LoginDTO getConfiguration(){
 
 		LoginDTO conf = new LoginDTO("sa","fsf");
-		return "redirect:/test";
+		return conf;
+	}
+
+	@GetMapping("/")
+	@ResponseBody
+	public String index() {
+		return "page1";
+	}
+		
+	@GetMapping("page/test")
+	@ResponseBody
+	public String customers() {
+		return "page2";
 	}
 }
